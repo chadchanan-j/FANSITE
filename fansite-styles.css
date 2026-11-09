@@ -1,0 +1,151 @@
+/* =====================================================
+   styles.css - Fansite เอมี่ ทสร กลิ่นเนียม
+   เปลี่ยนสีทั้งเว็บได้ที่ตัวแปรด้านล่างนี้ที่เดียว
+   ===================================================== */
+
+:root {
+  --paper: #f6f4fb;      
+  --white: #ffffff;
+  --ink: #231d3b;      
+  --muted: #5d5776;     
+  --rose: #d6336c;       
+  --rose-dark: #a8214f;  
+  --line: #d9d3ea;    
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Sarabun", Tahoma, sans-serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+h1, h2, h3 { font-family: "Prompt", "Sarabun", Tahoma, sans-serif; line-height: 1.2; margin: 0; }
+p { margin: 0 0 14px; max-width: 62ch; }
+a { color: var(--rose-dark); }
+a:visited { color: #6a3d8f; }
+a:hover { color: var(--rose); }
+
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- เมนูด้านบน ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+  padding: 12px 6vw;
+}
+.topbar .brand { color: #fff; font-family: "Prompt", sans-serif; font-weight: 600; }
+.topbar nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 22px;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+.topbar nav a:visited { color: #fff; }
+.topbar nav a:hover { color: #fff; border-bottom-color: #fff; }
+
+/* ---------- ส่วนบน (Hero): จุดเด่นของเว็บ ---------- */
+.hero {
+  background: var(--rose);
+  color: #fff;
+  padding: 64px 6vw 72px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px 56px;
+  align-items: end;
+}
+.hero h1 {
+  font-size: clamp(88px, 17vw, 190px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.hero .fullname { font-family: "Prompt", sans-serif; font-size: 24px; font-weight: 600; margin: 8px 0 18px; }
+.hero .tagline { font-size: 20px; max-width: 30ch; }
+
+/* กล่องข้อมูลโดยย่อ */
+.facts { background: var(--white); color: var(--ink); padding: 22px 26px; margin: 0; }
+.facts div { display: flex; gap: 16px; padding: 7px 0; border-bottom: 1px solid var(--line); }
+.facts div:last-child { border-bottom: 0; }
+.facts dt { width: 6.5em; flex-shrink: 0; color: var(--muted); }
+.facts dd { margin: 0; font-weight: 700; }
+
+/* ---------- เนื้อหา ---------- */
+main { max-width: 980px; margin: 0 auto; padding: 0 6vw; }
+section { padding: 64px 0 8px; scroll-margin-top: 56px; }
+h2 { font-size: 32px; font-weight: 700; margin-bottom: 20px; }
+
+/* ---------- ประวัติ ---------- */
+.about { display: grid; grid-template-columns: 1fr 1fr; gap: 0 44px; }
+.about p { max-width: none; }
+
+/* ---------- ไทม์ไลน์ผลงานละคร (เรียงตามปี) ---------- */
+.timeline { list-style: none; margin: 0; padding: 0 0 0 28px; border-left: 3px solid var(--rose); }
+.timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 5em 1fr;
+  gap: 4px 18px;
+  padding-bottom: 26px;
+}
+.timeline li::before {         /* จุดบนเส้น */
+  content: "";
+  position: absolute;
+  left: -38px;
+  top: 10px;
+  width: 15px;
+  height: 15px;
+  background: var(--paper);
+  border: 3px solid var(--rose);
+  border-radius: 50%;
+}
+.timeline .year { font-family: "Prompt", sans-serif; font-weight: 700; font-size: 22px; color: var(--rose-dark); }
+.timeline .title { font-weight: 700; font-size: 20px; }
+.timeline .role { color: var(--muted); display: block; font-weight: 400; font-size: 17px; }
+
+/* ---------- ตารางเพลง ---------- */
+.songs { width: 100%; border-collapse: collapse; background: var(--white); }
+.songs th { background: var(--ink); color: #fff; text-align: left; padding: 10px 14px; font-weight: 600; }
+.songs td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.songs .y { width: 4.5em; font-family: "Prompt", sans-serif; font-weight: 700; color: var(--rose-dark); }
+.songs .en { color: var(--muted); display: block; font-size: 16px; }
+.table-wrap { overflow-x: auto; }
+
+/* ---------- ไฮไลต์ ---------- */
+.highlights { margin: 0; padding-left: 24px; }
+.highlights li { margin-bottom: 8px; max-width: 62ch; }
+
+/* ---------- ทำไมเราชอบเอมี่ ---------- */
+.why { border-left: 6px solid var(--rose); padding: 4px 0 4px 26px; }
+.why p { font-size: 20px; }
+
+/* ---------- ส่วนท้าย ---------- */
+footer { margin-top: 72px; background: var(--ink); color: #d9d3ea; padding: 36px 6vw 44px; font-size: 16px; }
+footer p { max-width: 80ch; margin-bottom: 8px; }
+footer a { color: #fff; }
+footer a:visited { color: #e8d9ff; }
+
+/* ---------- จอเล็ก ---------- */
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding-top: 44px; }
+  .about { grid-template-columns: 1fr; }
+  .topbar nav a { margin: 0 16px 0 0; }
+  .timeline li { grid-template-columns: 1fr; }
+  h2 { font-size: 28px; }
+}
